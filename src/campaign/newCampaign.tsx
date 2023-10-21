@@ -10,7 +10,7 @@ export const NewCampaign = ({ contract, creatingCampaign }: NewCampaignProp) => 
     const title = (document.getElementById("title") as HTMLInputElement).value;
     const parties = (document.getElementById("parties") as HTMLInputElement).value.split(",");
     await contract?.createCampaign(title, parties);
-    creatingCampaign(true); //todo listen on createCampaign event to notify in ui
+    creatingCampaign(true);
   };
   return (
     <div className="flex min-w-[350px] flex-col rounded p-4 shadow-md dark:shadow-slate-500">

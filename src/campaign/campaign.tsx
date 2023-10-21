@@ -16,7 +16,6 @@ export const Campaign = ({ index, contract, campaign, inRequest }: CampaignProp)
   useEffect(() => {
     const getResults = async () => {
       setResults(await contract?.getCampaignResults(index));
-      console.log("geting results");
       inRequest(false);
     };
 
