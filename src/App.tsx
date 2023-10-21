@@ -43,8 +43,6 @@ function App() {
     }
   };
 
-  (async () => console.log(await contract?.listenerCount()))();
-
   return (
     <div className="relative flex h-screen w-screen flex-col items-center gap-8 self-center p-4 pt-24 md:flex-row md:items-start md:justify-center md:pb-20 md:pt-32">
       <h1 className="fixed left-0 top-4 z-10 w-screen text-center text-4xl font-semibold">VoteDapp</h1>
