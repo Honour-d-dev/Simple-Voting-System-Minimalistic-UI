@@ -1,6 +1,6 @@
 import { useState, useMemo, useEffect } from "react";
 import { Campaign, CampaignList, NewCampaign, CampaignObject } from "./campaign";
-import { Provider, address, abi } from "./contract/contractUtils";
+import { Provider, address, abi, sepolia } from "./contract/Utils";
 import { ethers, JsonRpcSigner } from "ethers";
 import loadingAnimation from "./assets/Ellipsis.svg";
 
@@ -35,7 +35,19 @@ function App() {
     };
   }, [contract]);
 
+  const checkNetwork = async () => {
+    const chain = (await Provider.getNetwork()).chainId;
+    if (chain !== ethers.toBigInt(sepolia.chainId)) {
+      try {
+        await window.ethereum.request({ method: "wallet_switchEthereumChain", params: [{ chainId: sepolia.chainId }] });
+      } catch {
+        await window.ethereum.request({ method: "wallet_addEthereumChain", params: [sepolia] });
+      }
+    }
+  };
+
   const connectWallet = async () => {
+    await checkNetwork();
     const accounts = await Provider.send("eth_requestAccounts", []);
     if (accounts[0]) {
       setAccount(accounts[0]);

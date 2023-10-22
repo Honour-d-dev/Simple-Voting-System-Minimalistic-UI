@@ -5,9 +5,22 @@ declare global {
     ethereum: ethers.Eip1193Provider;
   }
 }
+
+export const sepolia = {
+  chainId: "0xaa36a7",
+  rpcUrls: ["https://sepolia.infura.io/v3/"],
+  chainName: "Sepolia test network",
+  nativeCurrency: {
+    name: "SepoliaETH",
+    symbol: "ETH",
+    decimals: 18,
+  },
+  blockExplorerUrls: ["https://sepolia.etherscan.io"],
+};
+
 export const address = "0x2c9177c63886bdf1fdd2224b3eb27ddb46a1334f";
 
-export const Provider = new ethers.BrowserProvider(window.ethereum);
+export const Provider = new ethers.BrowserProvider(window.ethereum, "any");
 
 export const abi = [
   {
