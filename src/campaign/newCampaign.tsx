@@ -8,7 +8,10 @@ type NewCampaignProp = {
 export const NewCampaign = ({ contract, creatingCampaign }: NewCampaignProp) => {
   const create = async () => {
     const title = (document.getElementById("title") as HTMLInputElement).value;
-    const parties = (document.getElementById("parties") as HTMLInputElement).value.split(",");
+    const parties = (document.getElementById("parties") as HTMLInputElement).value
+      .trim()
+      .split(",")
+      .filter((party) => party !== "");
     await contract?.createCampaign(title, parties);
     creatingCampaign(true);
   };

@@ -36,7 +36,7 @@ export const Campaign = ({ index, contract, campaign, inRequest }: CampaignProp)
 
   return (
     <div className="flex w-[90vw] min-w-[350px] max-w-md flex-col items-center gap-2 rounded p-4 shadow-md dark:shadow-slate-400">
-      <h1 className="border-b border-zinc-500 text-3xl font-medium">{campaign.title}</h1>
+      <h1 className="border-b border-zinc-500 text-center text-3xl font-medium">{campaign.title}</h1>
       <div className="max-h-32 overflow-y-auto">
         <div className="grid grid-cols-2 gap-2 p-4">
           {campaign.parties.map((party, index) => {

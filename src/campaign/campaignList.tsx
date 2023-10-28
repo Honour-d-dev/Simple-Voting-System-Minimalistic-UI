@@ -31,12 +31,12 @@ export const CampaignList = ({ setIndex, load, list }: CampaignListProp) => {
           {list?.map((campaign, index) => {
             return (
               <div
-                className={`${
-                  campaign.ongoing ? "flex" : "hidden" //Temp fix
-                } flex-col items-center justify-center overflow-hidden text-ellipsis whitespace-nowrap p-2`}
+                className={`${campaign.ongoing ? "flex" : "hidden"} w-full flex-col items-center justify-center p-2`}
                 key={index}
               >
-                {campaign.title}
+                <span className="w-full overflow-hidden text-ellipsis whitespace-nowrap text-center">
+                  {campaign.title}
+                </span>
                 <button
                   className="flex w-full justify-center rounded bg-zinc-500 p-2"
                   onClick={() => {
